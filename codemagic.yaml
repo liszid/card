@@ -1,6 +1,6 @@
 workflows:
-  default-workflow:
-    name: Default Workflow
+  android-workflow:
+    name: Android Workflow
     environment:
       vars:
         GRADLEW_PATH: "./gradlew"
@@ -14,6 +14,7 @@ workflows:
       - name: Clean and build
         script: |
           $GRADLEW_PATH clean
-          $GRADLEW_PATH build
+          $GRADLEW_PATH assembleDebug
     artifacts:
-      - build/**/*
+      - build/outputs/**/*.apk
+    
