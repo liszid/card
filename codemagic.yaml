@@ -8,6 +8,7 @@ workflows:
     scripts:
       - name: Install dependencies
         script: |
+          chmod +x $GRADLEW_PATH
           $GRADLEW_PATH dependencies
       - name: Build APK
         script: |
