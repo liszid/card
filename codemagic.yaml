@@ -5,8 +5,6 @@ workflows:
     environment:
       vars:
         GRADLEW_PATH: "./gradlew"
-      android:
-        image: "default"
     scripts:
       - name: Install dependencies
         script: |
