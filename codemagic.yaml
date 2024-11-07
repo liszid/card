@@ -17,7 +17,3 @@ workflows:
           $GRADLEW_PATH build
     artifacts:
       - build/**/*
-    cache:
-      paths:
-        - ~/.gradle/caches/
-        - ~/.gradle/wrapper/
