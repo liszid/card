@@ -1,21 +1,23 @@
 workflows:
-  android-workflow:
-    name: Build Android APK
-    max_build_duration: 60
+  default-workflow:
+    name: Default Workflow
     environment:
       vars:
         GRADLEW_PATH: "./gradlew"
     scripts:
-      - name: Install dependencies
+      - name: Set Gradle wrapper executable
         script: |
           chmod +x $GRADLEW_PATH
-          $GRADLEW_PATH dependencies
-      - name: Build APK
+      - name: Install dependencies
         script: |
-          $GRADLEW_PATH assembleDebug
+          $GRADLEW_PATH dependencies
+      - name: Clean and build
+        script: |
+          $GRADLEW_PATH clean
+          $GRADLEW_PATH build
     artifacts:
-      - app/build/outputs/apk/debug/app-debug.apk
-    publishing:
-      email:
-        recipients:
-          - ventunes@gmail.com
+      - build/**/*
+    cache:
+      paths:
+        - ~/.gradle/caches/
+        - ~/.gradle/wrapper/
