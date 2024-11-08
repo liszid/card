@@ -8,6 +8,10 @@ buildscript {
     }
 }
 
+tasks.named('wrapper') {
+    distributionType = Wrapper.DistributionType.ALL
+}
+
 allprojects {
     repositories {
         google()
