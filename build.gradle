@@ -12,6 +12,10 @@ tasks.named('wrapper') {
     distributionType = Wrapper.DistributionType.ALL
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.1'
+}
+
 allprojects {
     repositories {
         google()
